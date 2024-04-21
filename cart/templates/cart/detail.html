@@ -25,11 +25,18 @@
                 <tr>
                     <td>
                         <a href="{{ product.get_absolute_url }}">
-                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="product-image">
                         </a>
                     </td>
                     <td>{{ product.name }}</td>
-                    <td>{{ item.quantity }}</td>
+                    <td>
+                        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                            {{ item.update_quantity_form.quantity }}
+                            {{ itme.update_quantity_form.override }}
+                            <input type="submit" value="Update">
+                            {% csrf_token %}
+                        </form>
+                    </td>
                     <td>
                         <form action="{% url 'cart:cart_remove' product.id %}" method="post">
                             <input type="submit" value="Remove">
@@ -37,7 +44,7 @@
                         </form>
                     </td>
                     <td class="num">${{ item.price }}</td>
-                    <td class="bum">${{ item.total_price }}</td>
+                    <td class="num">${{ item.total_price }}</td>
                 </tr>
                 {% endwith %}
             {% endfor %}
