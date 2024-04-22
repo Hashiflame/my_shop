@@ -9,8 +9,18 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
 
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+
+#stripe settings parameters
+load_dotenv('.env')
+STRIPE_PUBLISH_KEY = os.getenv('PUBLISH_KEY')
+STRIPE_SECRET_KEY = os.getenv('SECRET_KEY')
+STRIPE_API_VERSION = os.getenv('2024-04-10')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +50,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
