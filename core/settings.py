@@ -21,6 +21,7 @@ load_dotenv('.env')
 STRIPE_PUBLISH_KEY = os.getenv('PUBLISH_KEY')
 STRIPE_SECRET_KEY = os.getenv('SECRET_KEY')
 STRIPE_API_VERSION = os.getenv('2024-04-10')
+STRIPE_WEBHOOK_SECRET = os.getenv('WEBHOOK_SECRET')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
