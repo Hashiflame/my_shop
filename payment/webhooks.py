@@ -27,7 +27,7 @@ def stripe_webhook(request):
     
     if event.type == 'checkout.session.completed':
         session = event.data.object
-        if session.mode == 'payment' and session.payment_status == 'paid':
+        if (session.mode == 'payment' and session.payment_status == 'paid'):
             try:
                 order = Order.objects.get(id=session.client_reference_id)
             except Order.DoesNotExist:

@@ -10,7 +10,7 @@ def order_created(order_id):
     is successfully placed.
     """
     order = Order.objects.get(id=order_id)
-    subject = f'Order nr. {order_id}'
+    subject = f'Order no. {order_id}'
     message = f'Dear {order.first_name}, \n\n' \
                 f'You have successfully placed an order.' \
                 f'Your order ID is {order_id}'
