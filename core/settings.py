@@ -22,6 +22,8 @@ STRIPE_PUBLISH_KEY = os.getenv('PUBLISH_KEY')
 STRIPE_SECRET_KEY = os.getenv('SECRET_KEY')
 STRIPE_API_VERSION = os.getenv('2024-04-10')
 STRIPE_WEBHOOK_SECRET = os.getenv('WEBHOOK_SECRET')
+YOUR_EMAIL_ID = os.getenv('YOUR_EMAIL')
+YOUR_EMAIL_PASSWORD = os.getenv('YOUR_EMAIL_PASSWORD')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -144,4 +146,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CART_SESSION_ID = 'cart'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#email sever configuration
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = YOUR_EMAIL_ID
+EMAIL_HOST_PASSWORD = YOUR_EMAIL_PASSWORD
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
