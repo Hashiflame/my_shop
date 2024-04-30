@@ -2,3 +2,4 @@
 media/
 .env
 db.sqlite3
+start_docker.txt
