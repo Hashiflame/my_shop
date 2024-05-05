@@ -10,7 +10,7 @@ from .tasks import payment_complated
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    sig_header = request.META['STRIPE_SIGNATURE'] #request.META.get("HTTP_STRIPE_SIGNATURE")
     event = None
 
     try:
